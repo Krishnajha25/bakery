@@ -11,11 +11,22 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [compact, setCompact] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
+  // Safari-URL-bar behaviour: shrink on scroll down, expand on scroll up
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      const delta = y - lastY;
+      if (Math.abs(delta) > 6) {
+        setCompact(delta > 0 && y > 90);
+        lastY = y;
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -55,7 +66,11 @@ export default function Nav() {
 
   return (
     <>
-      <div className={`site-nav${scrolled ? " scrolled" : ""}`}>
+      <div
+        className={`site-nav${scrolled ? " scrolled" : ""}${
+          compact && !open ? " compact" : ""
+        }`}
+      >
         <div className="wrap">
           <div className="nav-pill">
             <a className="logo" href="#" onClick={close}>
