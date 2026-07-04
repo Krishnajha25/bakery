@@ -15,11 +15,12 @@ export default function About() {
                 From a home oven, <em>with actual butter</em> and actual love.
               </h2>
               <p>
-                bakeologgyyy started as weekend bakes for friends and got a
-                little out of hand — in the best way. Everything is still baked
-                at home, in small batches, with ingredients we&apos;d feed our
-                own family. No preservatives, no shortcuts, no sad supermarket
-                cookies.
+                Bakeology is a home bakery in Vasai-Virar, Mumbai — it started
+                as weekend bakes for friends and got a little out of hand, in
+                the best way. Everything is still baked at home in an
+                FSSAI-registered kitchen, in small batches, with ingredients
+                we&apos;d feed our own family. No preservatives, no shortcuts,
+                no sad supermarket cookies.
               </p>
               <div className="about-stats">
                 <div className="stat">

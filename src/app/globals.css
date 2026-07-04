@@ -909,6 +909,66 @@ h2 em {
   color: var(--cocoa-soft);
 }
 
+/* faq */
+.faq-list {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item details {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+
+.faq-item details[open] {
+  border-color: var(--caramel);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif), serif;
+  font-size: 1.12rem;
+  font-weight: 560;
+  letter-spacing: -0.01em;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary i {
+  font-style: normal;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 700;
+  color: var(--caramel);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: rotate 0.25s ease;
+  flex: 0 0 auto;
+}
+
+.faq-item details[open] summary i {
+  rotate: 45deg;
+}
+
+.faq-item details p {
+  padding: 0 24px 22px;
+  color: var(--cocoa-soft);
+  font-size: 0.97rem;
+  max-width: 62ch;
+}
+
 /* big CTA */
 .cta {
   text-align: center;

@@ -4,11 +4,52 @@ export const site = {
   description:
     "Small-batch cookies, cookie cakes & tiramisu, baked from home in Vasai-Virar, Mumbai. FSSAI registered. Pre-order 1–2 days in advance — DM on Instagram or WhatsApp.",
   location: "Vasai-Virar | Mumbai",
+  // TODO: set NEXT_PUBLIC_SITE_URL (or replace the fallback) once the domain exists
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bakeologgyyy.example.com",
+  phone: "+91-8010993277",
   instagramDm: "https://ig.me/m/bakeologgyyy",
   instagram: "https://instagram.com/bakeologgyyy",
   whatsapp: "https://wa.me/918010993277",
   whatsappDisplay: "80109 93277",
+  areaServed: [
+    "Vasai",
+    "Virar",
+    "Nalasopara",
+    "Naigaon",
+    "Vasai-Virar",
+    "Mumbai",
+  ],
 } as const;
+
+export type Faq = { question: string; answer: string };
+
+export const faqs: Faq[] = [
+  {
+    question: "Which areas does Bakeology deliver to?",
+    answer:
+      "Bakeology is a home bakery based in Vasai-Virar, Mumbai. We serve Vasai, Virar, Nalasopara, Naigaon and nearby areas with pickup and local delivery — just ask when you place your order.",
+  },
+  {
+    question: "How do I place an order?",
+    answer:
+      "Message us on Instagram (@bakeologgyyy) or WhatsApp at +91 80109 93277 with what you'd like and when you need it. Please pre-order 1–2 days in advance — everything is baked fresh to order.",
+  },
+  {
+    question: "What does Bakeology bake?",
+    answer:
+      "Fresh-baked cookies (₹130–₹180) including Choco Chunk, Red Devil, Cookies N Cream, Double Trouble, Chocolate Kunafa and Biscoff; cookie cakes and tins in Mini (₹200), Bento (₹300) and Large (₹600) sizes; and classic tiramisu (200g, ₹300).",
+  },
+  {
+    question: "Is Bakeology FSSAI registered?",
+    answer:
+      "Yes — Bakeology is an FSSAI-registered home kitchen in Vasai-Virar. Everything is baked in small batches with no preservatives.",
+  },
+  {
+    question: "Can I get a custom cookie cake for a birthday?",
+    answer:
+      "Yes! Cookie cake flavours can be customised, and they come in Mini, Bento and Large sizes — great for birthdays and small celebrations. DM us with the occasion and we'll sort the rest.",
+  },
+];
 
 export type MenuItem = {
   name: string;

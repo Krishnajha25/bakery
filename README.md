@@ -20,6 +20,19 @@ npm run dev
 
 Real photos from the @bakeologgyyy Instagram live in `public/photos/` (curated, renamed). `public/photos-raw/` holds all 16 originals pulled from the profile — safe to delete or keep for swapping. Images are referenced from `src/lib/site.ts`.
 
+## SEO / AEO
+
+Targeted at local search ("bakery near me" from Vasai-Virar) and AI answer engines:
+
+- `src/lib/seo.ts` — JSON-LD `@graph`: `Bakery` (LocalBusiness) with full menu + INR prices + `areaServed` (Vasai, Virar, Nalasopara, Naigaon), `FAQPage`, `WebSite`
+- `src/app/layout.tsx` — local-keyword metadata, Open Graph (`public/og.jpg`), geo meta tags
+- `src/app/sitemap.ts` / `src/app/robots.ts` — robots deliberately allows AI crawlers (GPTBot, ClaudeBot, etc.) so the bakery surfaces in AI assistants
+- FAQ section on the page mirrors the FAQPage schema (Google requires visible content)
+
+**IMPORTANT — domain:** canonical URLs, sitemap and schema use `NEXT_PUBLIC_SITE_URL` (fallback is a placeholder). Set it in `.env`/hosting config once the domain exists, e.g. `NEXT_PUBLIC_SITE_URL=https://bakeology.in`
+
+After deploying: verify the site in [Google Search Console](https://search.google.com/search-console) and submit the sitemap; test rich results at https://search.google.com/test/rich-results. The single biggest local-SEO win beyond the site itself: create a **Google Business Profile** for Bakeology (home bakery, Vasai-Virar service area) and link this site + Instagram from it.
+
 ## Before going live
 
 - [ ] Testimonials in `Testimonials.tsx` are placeholders.
