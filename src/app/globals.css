@@ -180,9 +180,11 @@ body::after {
 }
 
 .burger {
+  /* expanding: pill grows first, burger fades back in after */
   transition:
     width 0.35s cubic-bezier(0.3, 0.9, 0.4, 1),
-    opacity 0.25s ease,
+    background-color 0.2s ease 0.15s,
+    opacity 0.2s ease 0.15s,
     transform 0.35s cubic-bezier(0.3, 0.9, 0.4, 1);
 }
 
@@ -1160,9 +1162,17 @@ footer {
 
   .site-nav.compact .burger {
     width: 0;
+    background-color: rgba(255, 253, 249, 0.94); /* matches pill bg */
     opacity: 0;
     transform: scale(0.4);
     pointer-events: none;
+    /* shrinking: vanish INSTANTLY (no blend/fade = no gray flash),
+       only the width collapse animates */
+    transition:
+      width 0.35s cubic-bezier(0.3, 0.9, 0.4, 1),
+      background-color 0s,
+      opacity 0s,
+      transform 0s;
   }
 
   .site-nav.compact .nav-actions {
